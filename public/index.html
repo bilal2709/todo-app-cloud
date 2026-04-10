@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lime Todo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero-card">
+        <div>
+          <h1>TODO APP <br> BILAL CLÉMENT</h1>
+        </div>
+        <div class="hero-side">
+          <div class="hero-stat">
+            <span id="todo-count">0</span>
+            <small>todos visibles</small>
+          </div>
+          <div class="hero-stat muted">
+            <span id="storage-mode">...</span>
+            <small></small>
+          </div>
+        </div>
+      </header>
+
+      <main class="content-grid">
+        <section class="panel form-panel">
+          <h2>Nouvelle todo</h2>
+          <form id="todo-form" class="todo-form">
+            <label class="input-label" for="todo-input">Texte</label>
+            <div class="input-row">
+              <input
+                id="todo-input"
+                name="text"
+                type="text"
+                placeholder="Exemple : terminer le déploiement Azure"
+                maxlength="160"
+                required
+              />
+              <button type="submit">Ajouter</button>
+            </div>
+          </form>
+          <p id="flash-message" class="flash-message" aria-live="polite"></p>
+        </section>
+
+        <section class="panel list-panel">
+          <div class="list-header">
+            <div>
+              <h2>Ma liste</h2>
+              <p>Toutes tes todos s’affichent ici.</p>
+            </div>
+          </div>
+
+          <ul id="todo-list" class="todo-list"></ul>
+          <div id="empty-state" class="empty-state hidden">
+            <div class="empty-icon">✓</div>
+            <h3>Aucune todo pour le moment</h3>
+            <p>Ajoute ta première tâche pour la voir apparaître ici.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <template id="todo-template">
+      <li class="todo-item">
+        <div class="todo-view">
+          <div class="todo-main">
+            <p class="todo-text"></p>
+            <span class="todo-date"></span>
+          </div>
+          <div class="todo-actions">
+            <button type="button" class="ghost-button" data-action="edit">Modifier</button>
+            <button type="button" class="danger-button" data-action="delete">Supprimer</button>
+          </div>
+        </div>
+        <form class="edit-form hidden">
+          <input type="text" class="edit-input" maxlength="160" required />
+          <div class="edit-actions">
+            <button type="submit">Enregistrer</button>
+            <button type="button" class="ghost-button" data-action="cancel">Annuler</button>
+          </div>
+        </form>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
