@@ -157,7 +157,7 @@ function loadTodos() {
   todos = readBrowserTodos();
   renderTodos();
   updateCounters();
-  storageMode.textContent = 'local navigateur';
+  storageMode.textContent = '';
 }
 
 todoForm.addEventListener('submit', (event) => {
